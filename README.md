@@ -47,6 +47,7 @@
 
 1. cmake --build <build_dir>
 2. make
+3. CMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/gmake(生成构建系统时,cmake会自动检测系统上可用的构建工具,并将其路径保存在CMAKE_MAKE_PROGRAM变量中.在这个例子中,CMAKE_MAKE_PROGRAM的值是/usr/bin/gmake,表示使用GNU Make作为构建工具.当执行cmake --build命令时,CMake会调用CMAKE_MAKE_PROGRAM指定的构建工具来编译和链接项目. /usr/bin/gmake(软连接) -> make\*)
 
 ## (3) 测试
 
