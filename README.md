@@ -60,3 +60,17 @@
 4. 注意: 安装之前,CMakeTools这个程序在自己账户的构建目录下,这是个临时目录.安装之后,CMakeTools这个程序被复制到/usr/local/bin目录下,这是个公共目录,所有用户都可以访问.因此,安装之后,CMakeTools这个程序不再是临时的,而是永久的,可以在任何时候使用.
 5. GNUInstallDirs: CMake内置模块,定义了不同平台的安装路径
 6. install_manifest.txt: 资源清单,记录已经安装文件列表
+
+## (5) 打包
+
+1. cpack
+2. make package
+3. cpack 默认收集install对应的目标,然后把收集到的目标打包在压缩包里
+4. cpack 执行步骤
+    - (1) 设置临时安装目录(<build_dir>/\_CPack_Packages/Linux/STGZ)
+    - (2) 执行cmake --install (cmake_install.cmake) 把目标安装到临时安装目录
+    - (3) 收集临时目录的文件列表
+    - (4) 执行打包,拷贝压缩包到构建目录
+5. CPackConfig.cmake: CPack配置文件,定义了打包的相关信息和选项(生成包格式,包名称,包版本)
+    - set(CPACK_GENERATOR "STGZ;TGZ;TZ") 指定生成的包格式,这里指定了三种格式: STGZ, TGZ, TZ
+    - set(CPACK_PACKAGE_FILE_NAME "CMakeTools-0.1.1-Linux") 指定生成的包名称,这里指定了包名称为 CMakeTools-0.1.1-Linux (包名称 = 包名称前缀+包版本+平台信息)
