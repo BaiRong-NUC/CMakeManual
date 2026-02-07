@@ -6,6 +6,8 @@
     - [(2) 编译链接](#2-编译链接)
     - [(3) 测试](#3-测试)
     - [(4) 本地安装](#4-本地安装)
+    - [(5) 打包](#5-打包)
+    - [(6) 脚本模式](#6-脚本模式)
 
 # 一. CMake 使用流程 CMakeTest/
 
@@ -74,3 +76,13 @@
 5. CPackConfig.cmake: CPack配置文件,定义了打包的相关信息和选项(生成包格式,包名称,包版本)
     - set(CPACK_GENERATOR "STGZ;TGZ;TZ") 指定生成的包格式,这里指定了三种格式: STGZ, TGZ, TZ
     - set(CPACK_PACKAGE_FILE_NAME "CMakeTools-0.1.1-Linux") 指定生成的包名称,这里指定了包名称为 CMakeTools-0.1.1-Linux (包名称 = 包名称前缀+包版本+平台信息)
+
+## (6) 脚本模式
+
+1. cmake -P <script_file> -Process script mode (eg: cmake -P cmake_install.cmake)
+
+2. cmake 脚本模式不会生成构建产物,也不会生成中间过程,适合处理各种与构建系统无关的自动化任务,例如环境检测,文件处理,部署打包等功能
+
+## (7) 命令行模式
+
+1. cmake -E <command> -Process command mode (eg: cmake -E copy <source> <destination> 拷贝文件)
