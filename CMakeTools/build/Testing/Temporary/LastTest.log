@@ -1,0 +1,19 @@
+Start testing: Feb 07 10:13 CST
+----------------------------------------------------------
+1/1 Testing: TestAdd
+1/1 Test: TestAdd
+Command: "/home/BaiRong/C++/CMakeManual/CMakeTools/build/CMakeTools"
+Directory: /home/BaiRong/C++/CMakeManual/CMakeTools/build
+"TestAdd" start time: Feb 07 10:13 CST
+Output:
+----------------------------------------------------------
+CMakeTools: /home/BaiRong/C++/CMakeManual/CMakeTools/CMakeToos.cpp:7: int main(int, const char**): Assertion `2 * 3 != 6' failed.
+<end of output>
+Test time =   0.14 sec
+----------------------------------------------------------
+Test Failed.
+"TestAdd" end time: Feb 07 10:13 CST
+"TestAdd" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Feb 07 10:13 CST

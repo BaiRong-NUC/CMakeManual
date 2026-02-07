@@ -2,7 +2,9 @@
 
 - [一. CMake 使用流程](#一-cmake-使用流程-cmaketset)
 - [二. 程序构建过程与CMake命令行介绍](#二-程序构建过程与cmake命令行介绍-cmaketools)
-    - [(1). 生成构建系统](#1-生成构建系统)
+    - [(1) 生成构建系统](#1-生成构建系统)
+    - [(2) 编译链接](#2-编译链接)
+    - [(3) 测试](#3-测试)
 
 # 一. CMake 使用流程 CMakeTest/
 
@@ -42,3 +44,9 @@
 
 1. cmake --build <build_dir>
 2. make
+
+## (3) 测试
+
+1. ctest
+2. make test
+3. ctest路径保存在CTestTestfile.cmake中
