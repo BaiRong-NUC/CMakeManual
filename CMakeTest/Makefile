@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/BaiRong/C++/CMakeManual
+CMAKE_SOURCE_DIR = /home/BaiRong/C++/CMakeManual/CMakeTest
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/BaiRong/C++/CMakeManual
+CMAKE_BINARY_DIR = /home/BaiRong/C++/CMakeManual/CMakeTest
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/BaiRong/C++/CMakeManual/CMakeFiles /home/BaiRong/C++/CMakeManual//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/BaiRong/C++/CMakeManual/CMakeTest/CMakeFiles /home/BaiRong/C++/CMakeManual/CMakeTest//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/BaiRong/C++/CMakeManual/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/BaiRong/C++/CMakeManual/CMakeTest/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,29 +129,29 @@ ServerDemo/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServerDemo.dir/build.make CMakeFiles/ServerDemo.dir/build
 .PHONY : ServerDemo/fast
 
-server.o: server.cpp.o
-.PHONY : server.o
+Server.o: Server.cpp.o
+.PHONY : Server.o
 
 # target to build an object file
-server.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServerDemo.dir/build.make CMakeFiles/ServerDemo.dir/server.cpp.o
-.PHONY : server.cpp.o
+Server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServerDemo.dir/build.make CMakeFiles/ServerDemo.dir/Server.cpp.o
+.PHONY : Server.cpp.o
 
-server.i: server.cpp.i
-.PHONY : server.i
+Server.i: Server.cpp.i
+.PHONY : Server.i
 
 # target to preprocess a source file
-server.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServerDemo.dir/build.make CMakeFiles/ServerDemo.dir/server.cpp.i
-.PHONY : server.cpp.i
+Server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServerDemo.dir/build.make CMakeFiles/ServerDemo.dir/Server.cpp.i
+.PHONY : Server.cpp.i
 
-server.s: server.cpp.s
-.PHONY : server.s
+Server.s: Server.cpp.s
+.PHONY : Server.s
 
 # target to generate assembly for a file
-server.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServerDemo.dir/build.make CMakeFiles/ServerDemo.dir/server.cpp.s
-.PHONY : server.cpp.s
+Server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServerDemo.dir/build.make CMakeFiles/ServerDemo.dir/Server.cpp.s
+.PHONY : Server.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ServerDemo"
-	@echo "... server.o"
-	@echo "... server.i"
-	@echo "... server.s"
+	@echo "... Server.o"
+	@echo "... Server.i"
+	@echo "... Server.s"
 .PHONY : help
 
 

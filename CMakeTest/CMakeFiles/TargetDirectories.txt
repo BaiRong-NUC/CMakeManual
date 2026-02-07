@@ -1,0 +1,3 @@
+/home/BaiRong/C++/CMakeManual/CMakeTest/CMakeFiles/ServerDemo.dir
+/home/BaiRong/C++/CMakeManual/CMakeTest/CMakeFiles/edit_cache.dir
+/home/BaiRong/C++/CMakeManual/CMakeTest/CMakeFiles/rebuild_cache.dir

@@ -1,4 +1,4 @@
-# 一. CMake 使用流程
+# 一. CMake 使用流程 CMakeTest/
 
 1. cmake_minimum_required() 设置运行CMake的最低版本，确保使用的CMake版本支持所需的功能和语法。
 2. 设置项目名称
@@ -7,3 +7,16 @@
    add_executable(ServerDemo server.cpp)
 4. cmake + CMakeList.txt 路径 命令生成makefile文件
 5. make 命令使用makefile编译生成可执行文件 ServerDemo
+
+# 程序构建过程与CMake命令行介绍
+
+1. cmake -> ctest -> cpack
+
+2. cmake:
+    - 生成构建系统
+    - 编译链接
+    - 本地安装
+    - 脚本模式
+    - 命令行模式
+3. ctest: 集成测试
+4. cpack: 打包
