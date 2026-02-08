@@ -101,6 +101,8 @@
 
 3. cmake_minimum_required(VERSION 3.18...4.0) 指定版本范围,cmake_minimum_required必须在顶层,必须在Project命令之前,不推荐在函数中调用
 
-4. project() 定义项目名称
+4. project() 定义项目名称,LANGUAGE指定使用的编程语言(默认使用C/C++),VERSION指定项目版本,DESCRIPTION指定项目描述信息。
 
-5. message() 输出消息,可以在生成构建系统时显示一些信息 =printf,第一个参数为消息类型,第二个参数为消息内容,这里没有指定消息类型,默认是STATUS,表示普通信息
+5. LANGUAGE指定使用的编程语言后CMake会自动检测系统是否安装编译器,生成CMakeFiles文件夹(简单的案例)检测编译器是否安装成功,如果没有安装编译器会报错,探测结果保存到CMakeFiles/3.26.5/CMakeCCompiler.cmake
+
+6. message() 输出消息,可以在生成构建系统时显示一些信息 =printf,第一个参数为消息类型,第二个参数为消息内容,这里没有指定消息类型,默认是STATUS,表示普通信息
