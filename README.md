@@ -8,6 +8,9 @@
     - [(4) 本地安装](#4-本地安装)
     - [(5) 打包](#5-打包)
     - [(6) 脚本模式](#6-脚本模式)
+    - [(7) 命令行模式](#7-命令行模式)
+- [三. CMake工程实践场景](#三-cmake工程实践场景)
+    - [(1) 发布可执行程序](#1-发布可执行程序)
 
 # 一. CMake 使用流程 CMakeTest/
 
@@ -87,3 +90,11 @@
 ## (7) 命令行模式
 
 1. cmake -E <command> -Process command mode (eg: cmake -E copy <source> <destination> 拷贝文件)
+
+# 三. CMake工程实践场景
+
+## (1) 发布可执行程序 ReleaseDemo/
+
+1. 介绍: 编译链接生成本地运行的程序,将其安装到系统目录下,供所有用户使用
+
+2. 流程: mkdir build -> cd build -> cmake ../(CMakeLists.txt) -> cmake --build(make) . -> cmake --install (make install).
