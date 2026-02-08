@@ -111,3 +111,8 @@
     - 文件搜索路径: 如果指定相对路径,则相对于当前CMakeLists.txt所在目录,如果指定绝对路径,则直接加载该路径的文件
     - Module搜索路径: 现在当前目录查找,如果没有找到,则在CMAKE_MODULE_PATH指定的路径中查找,如果还没有找到,则在CMake安装目录的Modules子目录中查找
     - 当要真实获取正在执行cmake脚本路径时,需要使用CMAKE_CURRENT_LIST_DIR
+
+8. install(): 将二进制,静态库,动态库,头文件部署到指定目录
+    - 目标文件: install(TARGETS <target> DESTINATION <dir>) 将add_executable/add_library添加的目标安装到指定目录
+    - 资源文件: install(FILES <files> DESTINATION <dir>) 将资源文件安装到指定目录
+    - 目录: install(DIRECTORY <dirs> DESTINATION <dir>) 将目录安装到指定目录
