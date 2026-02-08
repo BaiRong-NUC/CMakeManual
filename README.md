@@ -91,10 +91,16 @@
 
 1. cmake -E <command> -Process command mode (eg: cmake -E copy <source> <destination> 拷贝文件)
 
-# 三. CMake工程实践场景
+# 三. CMake工程实践场景与常见命令
 
 ## (1) 发布可执行程序 ReleaseDemo/
 
 1. 介绍: 编译链接生成本地运行的程序,将其安装到系统目录下,供所有用户使用
 
 2. 流程: mkdir build -> cd build -> cmake ../(CMakeLists.txt) -> cmake --build(make) . -> cmake --install (make install).
+
+3. cmake_minimum_required(VERSION 3.18...4.0) 指定版本范围,cmake_minimum_required必须在顶层,必须在Project命令之前,不推荐在函数中调用
+
+4. project() 定义项目名称
+
+5. message() 输出消息,可以在生成构建系统时显示一些信息 =printf,第一个参数为消息类型,第二个参数为消息内容,这里没有指定消息类型,默认是STATUS,表示普通信息
