@@ -116,3 +116,6 @@
     - 目标文件: install(TARGETS <target> DESTINATION <dir>) 将add_executable/add_library添加的目标安装到指定目录
     - 资源文件: install(FILES <files> DESTINATION <dir>) 将资源文件安装到指定目录
     - 目录: install(DIRECTORY <dirs> DESTINATION <dir>) 将目录安装到指定目录
+
+9. add_executable() 定义可执行文件目标,第一个参数是目标名称(唯一),第二个参数是源文件列表,可以指定多个源文件
+    - 可执行文件默认会生成在构建目录树中,位置对应于源代码树中调用命令的目录例如：源码在 src/app/main.cpp，构建目录是 build/，则可执行文件默认生成在 build/src/app/ 下
