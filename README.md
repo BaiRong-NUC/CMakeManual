@@ -152,3 +152,7 @@
     -   2. 生成期: 属性转化
     -   3. 构建期: 编译链接
     -   4. 安装期: 使用属性生成cmake_install.cmake
+
+## (4) CMake属性传递机制案例 TargetLinkLibrarys/
+
+1. 使用cmake --build <build_dir> -v 查看构建过程,观察属性传递过程
