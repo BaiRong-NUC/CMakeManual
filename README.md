@@ -13,6 +13,8 @@
     - [(1) 发布可执行程序](#1-发布可执行程序-releasedemo)
     - [(2) 链接静态库](#2-链接静态库-staticlibdemo)
     - [(3) CMake三大核心(目标Target/属性API Property/属性传递)](#3-CMake三大核心目标target属性api-property属性传递)
+    - [(4) CMake属性传递机制案例](#4-CMake属性传递机制案例-targetlinklibrarys)
+    - [(5) CMake通用属性设置函数](#5-CMake通用属性设置函数-settargetproperties)
 
 # 一. CMake 使用流程 CMakeTest/
 
@@ -156,3 +158,9 @@
 ## (4) CMake属性传递机制案例 TargetLinkLibrarys/
 
 1. 使用cmake --build <build_dir> -v 查看构建过程,观察属性传递过程
+
+## (5) CMake通用属性设置函数 SetTargetProperties/
+
+1. 使用cmake --build <build_dir> -v 查看构建过程,观察属性设置
+
+2. INTERFACE开头的属性是传播属性,主要指定使用库是需要的特性
