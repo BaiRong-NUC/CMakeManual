@@ -12,6 +12,7 @@
 - [三. CMake工程实践场景](#三-CMake工程实践场景与常见命令)
     - [(1) 发布可执行程序](#1-发布可执行程序-releasedemo)
     - [(2) 链接静态库](#2-链接静态库-staticlibdemo)
+    - [(3) CMake三大核心(目标Target/属性API Property/属性传递)](#3-CMake三大核心目标target属性api-property属性传递)
 
 # 一. CMake 使用流程 CMakeTest/
 
@@ -122,3 +123,32 @@
     - 可执行文件默认会生成在构建目录树中,位置对应于源代码树中调用命令的目录例如：源码在 src/app/main.cpp，构建目录是 build/，则可执行文件默认生成在 build/src/app/ 下
 
 ## (2) 链接静态库 StaticLibDemo/
+
+## (3) CMake三大核心(目标Target/属性API Property/属性传递)
+
+1. 目标(Target): CMake中的核心概念之一,表示构建系统中的一个构建产物,可以是可执行文件,静态库,动态库等.目标具有名称和类型,并且可以有各种属性和依赖关系.通过定义目标,可以指定如何编译和链接源代码文件,以及如何安装和使用生成的构建产物.
+    - 类型:
+        - EXECUTABLE(可执行文件):add_executable() 创建可执行文件目标
+        - STATIC(静态库): add_library(... STATIC) 创建静态库目标
+        - SHARED(动态库): add_library(... SHARED) 创建动态库目标
+        - INTERFACE(接口库): add_library(... INTERFACE) 创建接口库目标
+        - OBJECT(对象库): add_library(... OBJECT) 创建对象库目标
+2. 属性:
+    - Global属性: 影响整个构建系统的属性,例如CMAKE_CXX_STANDARD(指定C++标准版本)
+    - 目录属性: 影响特定目录及其子目录的属性,例如INCLUDE_DIRECTORIES(指定包含目录)
+    - 目标属性: 影响特定目标的属性,例如LINK_LIBRARIES(指定链接库)
+3. 属性作用域与传播范围:
+    - PRIVATE: 仅对当前目标有效,不会传播给依赖该目标的其他目标
+    - PUBLIC: 对当前目标和依赖该目标的其他目标有效,会传播给依赖该目标的其他目标
+    - INTERFACE: 仅对依赖该目标的其他目标有效,不会对当前目标本身产生影响
+4. API:
+    - 通用属性API: set_target_properties() 设置目标属性, get_target_property() 获取目标属性值
+    - 编译阶段: target_compile_features() 指定目标所需的编译特性, target_compile_options() 指定目标的编译选项,target_include_directories() 指定目标的包含目录, target_sources() 指定目标的源文件
+    - 链接阶段: target_link_libraries() 指定目标的链接库, target_link_options() 指定目标的链接选项, target_link_directories() 指定目标的链接目录
+    - 安装阶段: install(TARGETS <target> DESTINATION <dir>) 将目标安装到指定目录, install(FILES <files> DESTINATION <dir>) 将资源文件安装到指定目录, install(DIRECTORY <dirs> DESTINATION <dir>) 将目录安装到指定目录
+
+5. 流程:
+    -   1. 配置期: 目标注册+属性写入
+    -   2. 生成期: 属性转化
+    -   3. 构建期: 编译链接
+    -   4. 安装期: 使用属性生成cmake_install.cmake
