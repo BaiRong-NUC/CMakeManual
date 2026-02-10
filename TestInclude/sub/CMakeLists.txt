@@ -1,8 +1,4 @@
-cmake_minimum_required(VERSION 3.18)
-
-project(TestInclude)
-
-message("From TopLevel CMakeLists.txt")
+message("From sub/CMakeLists.txt")
 # 打印当前CMakeLists.txt所在目录(源代码目录)
 message("Current source directory: ${CMAKE_CURRENT_SOURCE_DIR}")
 
@@ -11,7 +7,3 @@ message("Current CMake script: ${CMAKE_CURRENT_LIST_FILE}")
 
 # 打印当前正在执行cmake脚本的全目录
 message("Current CMake script directory: ${CMAKE_CURRENT_LIST_DIR}")
-
-# 包含子目录cmake脚本
-# include(sub/sub.cmake)
-add_subdirectory(sub)

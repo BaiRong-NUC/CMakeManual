@@ -15,6 +15,7 @@
     - [(3) CMake三大核心(目标Target/属性API Property/属性传递)](#3-CMake三大核心目标target属性api-property属性传递)
     - [(4) CMake属性传递机制案例](#4-CMake属性传递机制案例-targetlinklibrarys)
     - [(5) CMake通用属性设置函数](#5-CMake通用属性设置函数-settargetproperties)
+    - [(6) include 与 add_subdirectory区别](#6-include-与-add_subdirectory区别-testinlude)
 
 # 一. CMake 使用流程 CMakeTest/
 
@@ -164,3 +165,11 @@
 1. 使用cmake --build <build_dir> -v 查看构建过程,观察属性设置
 
 2. INTERFACE开头的属性是传播属性,主要指定使用库是需要的特性
+
+## (6) include 与 add_subdirectory区别 TestInlude/
+
+1. include不新建作用域,add_subdirectory会新建一个作用域,在新作用域中执行子目录的CMakeLists.txt
+
+2. include CMAKE_CURRENT_SOURCE_DIR和CMAKE_CURRENT_BINARY_DIR指向父目录,add_subdirectory CMAKE_CURRENT_SOURCE_DIR和CMAKE_BINARY_LIST_DIR指向子目录
+
+3. include与add_subdirectory的CMAKE_CURRENT_LIST_FILE与CMAKE_CURRENT_LIST_DIR指向子目录的CMAKELISTS.txt目录
