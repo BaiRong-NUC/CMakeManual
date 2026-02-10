@@ -16,6 +16,7 @@
     - [(4) CMake属性传递机制案例](#4-CMake属性传递机制案例-targetlinklibrarys)
     - [(5) CMake通用属性设置函数](#5-CMake通用属性设置函数-settargetproperties)
     - [(6) include 与 add_subdirectory区别](#6-include-与-add_subdirectory区别-testinlude)
+    - [(7) CMake基于目标的库发布与查找](#7-CMake基于目标的库发布与查找-installstaticlib)
 
 # 一. CMake 使用流程 CMakeTest/
 
@@ -173,3 +174,17 @@
 2. include CMAKE_CURRENT_SOURCE_DIR和CMAKE_CURRENT_BINARY_DIR指向父目录,add_subdirectory CMAKE_CURRENT_SOURCE_DIR和CMAKE_BINARY_LIST_DIR指向子目录
 
 3. include与add_subdirectory的CMAKE_CURRENT_LIST_FILE与CMAKE_CURRENT_LIST_DIR指向子目录的CMAKELISTS.txt目录
+
+## (7) CMake基于目标的库发布与查找 InstallStaticLib/
+
+1. 库安装流程
+    - 安装头文件和库文件
+        - /usr/local/include/.h
+        - /usr/local/lib/.a/.so
+    - 定义导入目标,设置头文件和库文件具体属性(set_target_properties): 指导用户如何使用库,包括库的名称,版本,依赖关系等信息
+        - /usr/local/lib/cmake/xx/xxConfig.cmake
+        - /usr/local/lib/cmake/xx/xxTargets.cmake
+    - 使用find_package() 查找库,使用库
+        - find_package(xx CONFIG REQUIRED) 查找库,CONFIG表示查找Config.cmake文件,REQUIRED表示如果没有找到库则报错
+        - target_link_libraries(main PRIVATE xx::xx) 使用库,xx::xx是导入目标的名称,PRIVATE表示仅对当前目标有效
+    - 读取目标属性构建编译链接参数
