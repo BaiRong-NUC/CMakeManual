@@ -235,3 +235,21 @@
         - WARNING: 警告信息
         - ERROR: 错误信息,会导致配置失败,不会停止生成,不生成makefile
         - FATAL_ERROR: 致命错误,会立即终止配置过程,停止生成,不会生成makefile
+
+2. 普通变量: CMake中的变量是字符串类型,保存一些值,可以在CMakeLists.txt中定义和使用变量,变量名通常使用大写字母和下划线分隔,例如: MY_VARIABLE(区分大小写)
+    - set(<variable_name> <value>) 定义变量,例如: set(MY_VARIABLE "Hello World")
+    - ${<variable_name>} 使用变量,例如: message(STATUS "The value of MY_VARIABLE is ${MY_VARIABLE}")
+    - unset(<variable_name>) 删除变量,例如: unset(MY_VARIABLE)
+    - 作用域:
+        - Function scope: 在函数内部定义的变量仅在函数内部可见,函数外部无法访问(局部变量)
+        - Directory scope: 在A/CMakeLists.txt中定义的变量在A/CMakeLists.txt及其子目录的CMakeLists.txt中可见,但在父目录的CMakeLists.txt中不可见(目录变量)
+        - Persistent scope: 在顶级CMakeCache.txt中定义的变量在整个构建过程中都可见,可以在不同的CMakeLists.txt中访问(缓存变量 set(xxx CACHE <type> <docstring>))
+    - 计算变量值: 首先在当前作用域查找变量,如果没有找到,则在父作用域中查找,直到顶级作用域,CMakeCache,如果仍然没有找到,则返回空字符串。
+    - 使用${<variable_name>}访问变量时,会触发变量的计算过程,根据上述规则查找变量的值并返回。
+    - if(${<variable_name>})==if(<variable_name>)$可以省略
+    - 子目录定义的同名变量不会影响到父目录,父目录也拿不到子目录定义的变量(内存隔离)
+
+3. 缓存变量:解决的是信息在多次cmake调用之间,以及在整个源码树各目录之间如何共享并持久化的问题
+    - 全局,持久,可由用户交互修改
+    - 第二次设置需要带force参数,第一次设置不需要,否则不会修改CMakeCache.txt中的值
+    - 也可以使用cmake -D<variable_name>=<value>命令行参数设置缓存变量,例如: cmake -DMY_VARIABLE="Hello World" ../ (命令行优先级比force低)

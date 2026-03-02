@@ -221,6 +221,9 @@ CMakeLanguage_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 CMakeLanguage_SOURCE_DIR:STATIC=/home/BaiRong/C++/CMakeManual/CMakeLanguage
 
+//Operating System
+OS:STRING=Windows
+
 
 ########################
 # INTERNAL cache entries
