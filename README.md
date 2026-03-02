@@ -19,6 +19,8 @@
     - [(7) CMake基于目标的库发布与查找(静态库)](#7-CMake基于目标的库发布与查找静态库-installstaticlib-usestaticlib)
     - [(8) CMake链接动态库](#8-CMake链接动态库-sharedlibdemo)
     - [(9) CMake动态库安装](#9-CMake动态库安装-installsharedlib)
+    - [(10) JsonCpp 库的使用](#10-JsonCpp-库的使用-jsoncppdemo)
+    - [(11) CTest集成测试](#11-CTest集成测试-ctestdemo)
 
 # 一. CMake 使用流程 CMakeTest/
 
@@ -207,4 +209,12 @@
 
 ## (10) JsonCpp 库的使用 JsonCppDemo/
 
-1. 静态库,动态库导入目标在jsoncppConfigVersion.cmake定义
+1. 静态库,动态库导入目标名称在jsoncppConfigVersion.cmake定义
+
+## (11) CTest集成测试 CTestDemo/
+
+1. CTest是CMake集成测试框架,用于自动化执行项目测试,支持多种测试类型,并能生成测试报告
+
+2. include(CTest) 加载CTest模块,启用CTest功能(顶级CMakeLists.txt)
+    - add_test(NAME <test_name> COMMAND <command>) 定义测试,NAME指定测试名称,COMMAND指定测试命令
+    - 在顶级构建目录下执行CTest命令,CTest会自动发现并执行所有定义的测试,生成测试报告

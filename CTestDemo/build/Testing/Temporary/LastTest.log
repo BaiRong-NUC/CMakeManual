@@ -1,0 +1,19 @@
+Start testing: Mar 02 16:21 CST
+----------------------------------------------------------
+1/1 Testing: TestMyMath
+1/1 Test: TestMyMath
+Command: "/home/BaiRong/C++/CMakeManual/CTestDemo/build/main"
+Directory: /home/BaiRong/C++/CMakeManual/CTestDemo/build
+"TestMyMath" start time: Mar 02 16:21 CST
+Output:
+----------------------------------------------------------
+Test End
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"TestMyMath" end time: Mar 02 16:21 CST
+"TestMyMath" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Mar 02 16:21 CST
