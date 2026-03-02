@@ -253,3 +253,8 @@
     - 全局,持久,可由用户交互修改
     - 第二次设置需要带force参数,第一次设置不需要,否则不会修改CMakeCache.txt中的值
     - 也可以使用cmake -D<variable_name>=<value>命令行参数设置缓存变量,例如: cmake -DMY_VARIABLE="Hello World" ../ (命令行优先级比force低)
+
+4. 环境变量: 环境变量是操作系统级的变量,需要通过$ENV{VAR}语法访问
+    - 作用域: 全局可见,但需要通过$ENV{VAR}显式引用,只存在CMake进程中,不会被持久化到系统中
+    - 生命周期: 取决于操作系统与CMAKE运行会话无关
+    - 用于获取系统配置

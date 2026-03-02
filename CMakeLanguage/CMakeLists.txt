@@ -36,7 +36,7 @@ print_var()
 
 message(STATUS "3. main: ${SCOP}") # 输出Directory Scop
 
-# 全局变量
+# 3. 全局变量
 # 第一次
 # set(OS "Linux" CACHE STRING "Operating System") # 定义一个全局变量OS,并将其保存到CMake缓存中,使得在整个CMakeLists.txt文件中都能访问到该变量
 # 第二次带force参数修改变量值
@@ -44,3 +44,10 @@ set(OS "Windows" CACHE STRING "Operating System" FORCE)
 
 message(STATUS "OS: ${OS}")
 # message(STATUS "OS: $CACHE{OS}") # 指定从CMakeCache.txt文件中获取变量值,与直接使用${OS}效果相同
+
+# 4. 环境变量
+message(STATUS "PATH: $ENV{PATH}") # 获取环境变量PATH的值,并打印输出
+message(STATUS "OS: $ENV{OS}") # 获取环境变量OS的值,并打印输出
+set(ENV{OS} "Linux") # 环境变量OS的值随CMake进程结束后消失
+message(STATUS "OS: $ENV{OS}") 
+message(STATUS "OS: ${OS}") # 获取环境变量OS的值,并打印输出
