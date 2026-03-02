@@ -191,3 +191,5 @@
     - 读取目标属性构建编译链接参数
 
 ## (8) CMake链接动态库 SharedLibDemo/
+
+1. 动态库路径机制: CMake(rpath机制) ->gcc -wl,rpath -> ELF的DT_RUNPATH段 -> ld-linux.so动态加载器去ELF中搜索库的搜索路径
