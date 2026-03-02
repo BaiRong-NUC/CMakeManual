@@ -204,3 +204,7 @@
 3. find_package()模式:
     - module模式: 使用方自己编写查找脚本,find_package.cmake
     - config模式: 由库的发布者提供库文件定位与使用信息,使用方不需要手动编写脚本,使用上游定义好的目标完成使用.
+
+## (10) JsonCpp 库的使用 JsonCppDemo/
+
+1. 静态库,动态库导入目标在jsoncppConfigVersion.cmake定义
