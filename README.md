@@ -22,6 +22,7 @@
     - [(10) JsonCpp 库的使用](#10-JsonCpp-库的使用-jsoncppdemo)
     - [(11) CTest集成测试](#11-CTest集成测试-ctestdemo)
     - [(12) CPack打包](#12-CPack打包-cpackdemo)
+- [四. CMake语法](#四-CMake语法-cmakelanguage)
 
 # 一. CMake 使用流程 CMakeTest/
 
@@ -225,3 +226,12 @@
 1. 使用: 在顶级构建目录下使用CPack命令,CPack会根据自动收集CMake install命令需要打包的文件,生成指定格式的安装包,并将安装包放在构建目录下
 
 2. 所以使用CPack前需要写好install命令,指定需要安装的文件和安装路径,CPack会根据这些信息生成安装包
+
+# 四. CMake语法 CMakeLanguage/
+
+1. message函数:
+    - message(<message_type> "message content") 输出消息,其中<message_type>可以是以下几种类型:
+        - STATUS: 普通信息,默认类型
+        - WARNING: 警告信息
+        - ERROR: 错误信息,会导致配置失败,不会停止生成,不生成makefile
+        - FATAL_ERROR: 致命错误,会立即终止配置过程,停止生成,不会生成makefile
