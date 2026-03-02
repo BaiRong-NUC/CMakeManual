@@ -18,6 +18,7 @@
     - [(6) include 与 add_subdirectory区别](#6-include-与-add_subdirectory区别-testinlude)
     - [(7) CMake基于目标的库发布与查找(静态库)](#7-CMake基于目标的库发布与查找静态库-installstaticlib-usestaticlib)
     - [(8) CMake链接动态库](#8-CMake链接动态库-sharedlibdemo)
+    - [(9) CMake动态库安装](#9-CMake动态库安装-installsharedlib)
 
 # 一. CMake 使用流程 CMakeTest/
 
@@ -193,3 +194,7 @@
 ## (8) CMake链接动态库 SharedLibDemo/
 
 1. 动态库路径机制: CMake(rpath机制) ->gcc -wl,rpath -> ELF的DT_RUNPATH段 -> ld-linux.so动态加载器去ELF中搜索库的搜索路径
+
+## (9) CMake动态库安装 InstallSharedLib/
+
+1. CMake作为库的发布方需要步骤: 发布头文件-> 发布库文件-> 发布导入目标定义CMake文件,这样使用find_package()查找库时才能正确找到库文件和头文件,并且正确设置编译链接参数

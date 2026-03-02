@@ -1,0 +1,7 @@
+/usr/local/lib64/libMyMath.so.1.2.3
+/usr/local/lib64/libMyMath.so.20
+/usr/local/lib64/libMyMath.so
+/usr/local/include/math/math.h
+/usr/local/lib64/cmake/MyMath/MyMathTargets.cmake
+/usr/local/lib64/cmake/MyMath/MyMathTargets-noconfig.cmake
+/usr/local/lib64/cmake/MyMath/MyMathConfig.cmake
