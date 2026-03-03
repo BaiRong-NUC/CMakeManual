@@ -235,3 +235,26 @@ message(STATUS "MY_LIST: ${MY_LIST}")
 foreach(ELEMENT IN LISTS MY_LIST)
     message(STATUS "Current element: ${ELEMENT}")
 endforeach()
+
+# 9. CMake 自定义函数
+function(print_args first second)
+    message("ARGC=${ARGC}") # 打印函数参数的数量
+    message("ARGV0=${ARGV0}") # 打印第一个参数的值
+    message("ARGV1=${ARGV1}") # 打印第二个参数的值
+    message("ARGV2=${ARGV2}") # 打印第三个参数的值,如果没有定义则为空
+    message("ARGV=${ARGV}") # 打印所有参数列表;分隔
+    message("ARGN=${ARGN}") # 打印除前面定义的参数外的其他参数列表;分隔
+    message("first=${first} second=${second}")
+endfunction()
+
+print_args("Hello" "World" "Extra" "Arguments")
+
+function(ADD X Y)
+    math(EXPR RESULT "${X} + ${Y}") # 使用math函数对参数进行算术运算,将X和Y的值相加并保存到变量RESULT中
+    message(STATUS "Result in function: ${RESULT}")
+    set(RESULT "${RESULT}" PARENT_SCOPE) # 将修改后的变量RESULT保存到父目录作用域空间,使得在函数外部也能访问到修改后的值
+endfunction()
+
+set(RESULT 0) # 定义一个变量RESULT,并将其初始值设置为0
+ADD(10 20)
+message(STATUS "Result in main: ${RESULT}") # 输出30

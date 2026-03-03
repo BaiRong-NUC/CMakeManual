@@ -277,3 +277,14 @@
 
 8. CMake LIST 函数:
     - list是CMake中一组由分号分隔的值
+
+9. CMake 函数:
+    - 使用function命令定义函数,使用endfunction结束函数定义
+    - function_name(参数)调用
+    - ARGC:参数个数
+    - ARGV0:第一个参数
+    - ARGV:所有参数列表;分隔
+    - ARGN:除前面定义的参数外的其他参数列表;分隔
+    - eg: func(a b c) ${ARGV0}=a ${ARGV1}=b ${ARGV2}=c ${ARGV}=a;b;c ${ARGN}= (收集用户多传进来的参数,这里ARGN为空)
+    - 返回值: CMake函数没有返回值,但可以通过设置变量来间接返回结果,例如: set(RESULT "Function Result" PARENT_SCOPE) 在函数外部访问${RESULT}获取结果
+    - 使用缓存变量全局共享结果
