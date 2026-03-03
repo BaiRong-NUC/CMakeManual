@@ -291,3 +291,6 @@
 
 10. 查找库需要的编译选项: pkg-config --cflags --libs xxx
     - g++ ../main.cpp -o main ${`pkg-config --cflags --libs xxx`}
+    - find_package(PkgConfig REQUIRED) 查找PkgConfig模块,REQUIRED表示如果没有找到模块则报错
+    - pkg_check_modules(PC_XXX REQUIRED IMPORTED_TARGET xxx) 查找库xxx,查找结果放到PC_XXX
+    - target_link_libraries(main PRIVATE PkgConfig::PC_XXX) 使用库,PkgConfig::PC_XXX是导入目标的名称,PRIVATE表示仅对当前目标有效
