@@ -288,3 +288,6 @@
     - eg: func(a b c) ${ARGV0}=a ${ARGV1}=b ${ARGV2}=c ${ARGV}=a;b;c ${ARGN}= (收集用户多传进来的参数,这里ARGN为空)
     - 返回值: CMake函数没有返回值,但可以通过设置变量来间接返回结果,例如: set(RESULT "Function Result" PARENT_SCOPE) 在函数外部访问${RESULT}获取结果
     - 使用缓存变量全局共享结果
+
+10. 查找库需要的编译选项: pkg-config --cflags --libs xxx
+    - g++ ../main.cpp -o main ${`pkg-config --cflags --libs xxx`}
