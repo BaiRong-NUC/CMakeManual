@@ -217,3 +217,21 @@ while(COUNTER LESS_EQUAL 5)
     message(STATUS "Counter: ${COUNTER}")
     math(EXPR COUNTER "${COUNTER} + 1") # 使用math函数对变量进行算术运算,将COUNTER的值加1
 endwhile()
+
+# 8. CMake LIST函数
+set(MY_LIST "A;B;C")
+list(LENGTH MY_LIST LEN) # 获取列表MY_LIST的长度,并将结果保存到变量LEN中
+message(STATUS "Length of MY_LIST: ${LEN}")
+list(APPEND MY_LIST "D") # 向列表MY_LIST中添加一个元素"D"
+message(STATUS "MY_LIST: ${MY_LIST}")
+list(REMOVE_ITEM MY_LIST "B") # 从列表MY_LIST中移除元素"B"
+message(STATUS "MY_LIST: ${MY_LIST}")
+list(INSERT MY_LIST 1 "E") # 在列表MY_LIST的索引位置1处插入元素"E"
+message(STATUS "MY_LIST: ${MY_LIST}")
+# 对列表进行排序
+list(SORT MY_LIST)
+message(STATUS "MY_LIST: ${MY_LIST}")
+# 遍历列表
+foreach(ELEMENT IN LISTS MY_LIST)
+    message(STATUS "Current element: ${ELEMENT}")
+endforeach()

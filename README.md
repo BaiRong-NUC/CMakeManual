@@ -274,3 +274,6 @@
 
 7. CMake while语句:
     - 使用break(),continue()控制循环流程,使用endwhile()结束循环
+
+8. CMake LIST 函数:
+    - list是CMake中一组由分号分隔的值
