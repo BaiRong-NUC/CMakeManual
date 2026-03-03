@@ -51,3 +51,140 @@ message(STATUS "OS: $ENV{OS}") # 获取环境变量OS的值,并打印输出
 set(ENV{OS} "Linux") # 环境变量OS的值随CMake进程结束后消失
 message(STATUS "OS: $ENV{OS}") 
 message(STATUS "OS: ${OS}") # 获取环境变量OS的值,并打印输出
+
+# 5. CMake if语句
+
+# 常量真
+if("ON")
+    message(STATUS "ON is true")
+else()
+    message(STATUS "ON is false")
+endif()
+
+# 常量假
+if("abc")
+    message(STATUS "abc is true")
+else()
+    message(STATUS "abc is false")
+endif()
+
+# 变量
+set(VAR "NOTFOUND")
+if(VAR)
+    message(STATUS "VAR is true")
+else()
+    message(STATUS "VAR is false")
+endif()
+
+set(VAR "ON")
+if(${VAR})
+    message(STATUS "Modify VAR is true")
+else()
+    message(STATUS "Modify VAR is false")
+endif()
+
+# 环境变量(始终为假)
+if(ENV{PATH})
+    message(STATUS "Environment variable PATH is true")
+else()
+    message(STATUS "Environment variable PATH is false")
+endif()
+
+# 逻辑运算
+if(NOT "ON")
+    message(STATUS "NOT ON is true")
+else()
+    message(STATUS "NOT ON is false")
+endif()
+
+if("ON" AND "abc")
+    message(STATUS "ON AND abc is true")
+else()
+    message(STATUS "ON AND abc is false")
+endif()
+
+if("ON" OR "abc")
+    message(STATUS "ON OR abc is true")
+else()
+    message(STATUS "ON OR abc is false")
+endif()
+
+# 存在性检测
+if(COMMAND project)
+    message(STATUS "Command project exists")
+else()
+    message(STATUS "Command project does not exist")
+endif()
+
+add_library(MyMath INTERFACE) # 定义一个接口库MyMath,该库不包含任何源文件,仅用于提供接口和属性
+if(TARGET MyMath)
+    message(STATUS "Target MyMath exists")
+else()
+    message(STATUS "Target MyMath does not exist")
+endif()
+
+# 变量是否定义
+if(DEFINED VAR)
+    message(STATUS "Variable VAR is defined")
+else()
+    message(STATUS "Variable VAR is not defined")
+endif()
+
+# set(AGE "18" CACHE STRING "Age") # 定义一个全局变量AGE,并将其保存到CMake缓存中,使得在整个CMakeLists.txt文件中都能访问到该变量
+if(DEFINED AGE)
+    message(STATUS "Variable AGE is defined")
+else()
+    message(STATUS "Variable AGE is not defined")
+endif()
+
+if(DEFINED ENV{PATH})
+    message(STATUS "Environment variable PATH is defined")
+else()
+    message(STATUS "Environment variable PATH is not defined")
+endif()
+
+# 文件是否存在
+if(EXISTS ${CMAKE_CURRENT_LIST_FILE})
+    message(STATUS "Current CMakeLists.txt file exists")
+else()
+    message(STATUS "Current CMakeLists.txt file does not exist")
+endif()
+
+# 相对路径取决于源外还是源内构建,不推荐使用
+# if(EXISTS "./CMakeCache.txt")
+#     message(STATUS "./CMakeCache.txt file exists")
+# else()
+#     message(STATUS "./CMakeCache.txt file does not exist")
+# endif()
+
+if(EXISTS "${CMAKE_BINARY_DIR}/CMakeCache.txt")
+    message(STATUS "CMakeCache.txt file exists")
+else()
+    message(STATUS "CMakeCache.txt file does not exist")
+endif()
+
+# 比较
+if(AGE GREATER 18)
+    message(STATUS "AGE is greater than 18")
+else()
+    message(STATUS "AGE is not greater than 18")
+endif()
+
+if("abc" STRLESS "abd")
+    message(STATUS "abc is less than abd")
+else()
+    message(STATUS "abc is not less than abd")
+endif()
+
+if("30" LESS "20")
+    message(STATUS "30 is less than 20")
+else()
+    message(STATUS "30 is not less than 20")
+endif()
+
+# 版本号
+if(CMAKE_VERSION VERSION_LESS "3.20")
+    message(STATUS "CMake version is less than 3.20")
+else()
+    message(STATUS "CMake version is greater than or equal to 3.20")
+endif()
