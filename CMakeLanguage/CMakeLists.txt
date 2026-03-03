@@ -210,3 +210,10 @@ endforeach()
 foreach(ELEMENT IN ITEMS "A;B;C")
     message(STATUS "Current element: ${ELEMENT}")
 endforeach()
+
+# 7. CMake while循环
+set(COUNTER 1)
+while(COUNTER LESS_EQUAL 5)
+    message(STATUS "Counter: ${COUNTER}")
+    math(EXPR COUNTER "${COUNTER} + 1") # 使用math函数对变量进行算术运算,将COUNTER的值加1
+endwhile()

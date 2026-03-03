@@ -268,6 +268,9 @@
 
 6. CMake foreach语句:
     - 使用break(),continue()控制循环流程,使用endforeach()结束循环
-    - list字符串使用;或者空格分隔
+    - 多个字符串空格分隔彼此
     - foreach ITEM 后面是字面值,直接作为元素,不当变量解析
-    - foreach LISTS 后面是变量名,变量值按照;或者空格分隔成列表,每个元素当变量解析
+    - foreach LISTS 后面是变量名,变量值按照;分隔成列表,每个元素当变量解析
+
+7. CMake while语句:
+    - 使用break(),continue()控制循环流程,使用endwhile()结束循环
