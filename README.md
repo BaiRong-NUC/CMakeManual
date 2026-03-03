@@ -265,3 +265,9 @@
     - 带引号的字符串除了真常量构成的字符串外,其余都是假(字符串类型)
     - if语句与endif成对使用
     - if对于CMAKE普通变量会自动求值,if(var)==if(${var}),if对于环境变量与缓存变量不会自动求值,需要使用$ENV{VAR}语法访问值,例如: if($ENV{MY_ENV_VAR})
+
+6. CMake foreach语句:
+    - 使用break(),continue()控制循环流程,使用endforeach()结束循环
+    - list字符串使用;或者空格分隔
+    - foreach ITEM 后面是字面值,直接作为元素,不当变量解析
+    - foreach LISTS 后面是变量名,变量值按照;或者空格分隔成列表,每个元素当变量解析

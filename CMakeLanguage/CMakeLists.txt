@@ -188,3 +188,25 @@ if(CMAKE_VERSION VERSION_LESS "3.20")
 else()
     message(STATUS "CMake version is greater than or equal to 3.20")
 endif()
+
+# 6. CMake foreach循环
+foreach(ELEMENT "A" "B" "C") # 遍历列表变量LIST中的每个元素,将当前元素赋值给变量ELEMENT
+    message(STATUS "Current element: ${ELEMENT}") # 打印当前元素的值
+endforeach()
+
+set(LIST "1;2;3")
+foreach(ELEMENT ${LIST})
+    message(STATUS "Current element: ${ELEMENT}")
+endforeach()
+
+foreach(ELEMENT RANGE 1 5 2)
+    message(STATUS "Current element: ${ELEMENT}")
+endforeach()
+
+foreach(ELEMENT IN LISTS LIST)
+    message(STATUS "Current element: ${ELEMENT}")
+endforeach()
+
+foreach(ELEMENT IN ITEMS "A;B;C")
+    message(STATUS "Current element: ${ELEMENT}")
+endforeach()
